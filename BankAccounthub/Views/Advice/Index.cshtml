@@ -1,0 +1,20 @@
+﻿<h1>Index</h1>
+@model string
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Advice</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Advice Generator</h1>
+        <p>@Model</p> <!-- Display the advice -->
+
+        <div class="mt-4">
+            <a href="@Url.Action("RandomAdvice", "Advice")" class="btn btn-primary">Get Another Advice</a>
+    </div>
+</body>
+</html>

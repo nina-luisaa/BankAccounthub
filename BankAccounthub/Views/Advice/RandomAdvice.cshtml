@@ -1,0 +1,38 @@
+﻿@model string
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Advice</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery -->
+</head>
+<body>
+    <div class="container">
+        <h1>Random Advice Generator</h1>
+
+        <!-- Where advice will be displayed -->
+        <div id="advice-container">
+            <p>@Model</p> <!-- Display initial advice -->
+        </div>
+
+        <!-- Button to generate new advice -->
+        <button id="get-advice-btn" class="btn btn-primary">Get New Advice</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#get-advice-btn').click(function () {
+                $.ajax({
+                    url: '@Url.Action("GetNewAdvice", "Advice")', // AJAX URL
+                    type: 'GET',
+                    success: function (result) {
+                        $('#advice-container').html('<p>' + result + '</p>'); // Replace advice with new content
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
